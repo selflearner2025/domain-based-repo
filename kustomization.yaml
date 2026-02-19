@@ -1,3 +1,0 @@
-resources:
-  - jobs/api-call-poc.yaml
-  - jobs/configmap.yaml
