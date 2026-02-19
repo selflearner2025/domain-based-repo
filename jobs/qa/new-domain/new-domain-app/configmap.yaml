@@ -4,6 +4,6 @@ metadata:
   name: another-new-domain-management-app-cm-qa
 data:
   artifactName: bpmn-poc.tar.gz
-  artifactSha256: "change new domain to something else"
+  artifactSha256: "change new domain to something else on thrudsay"
   # command sha256sum bpmn-poc.tar.gz
   artifactUrl: "abcd.efgh"
