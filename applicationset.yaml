@@ -13,6 +13,8 @@ spec:
   template:
     metadata:
       name: '{{path.basename}}-application' 
+      labels:
+        domain: '{{path[1]}}'
     spec:
       project: default
       source:
