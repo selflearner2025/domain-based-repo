@@ -36,7 +36,7 @@ spec:
                for file in /artifact/*; do
                   echo "---- $file ----"
                   cat "$file"
-                  echo ""
+                  echo "test"
                done
             
                echo "🎯 Specific values (if keys exist):"
