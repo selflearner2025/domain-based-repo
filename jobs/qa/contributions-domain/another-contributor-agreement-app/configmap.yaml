@@ -4,6 +4,6 @@ metadata:
   name: another-contributor-agreement-app-cm-qa
 data:
   artifactName: bpmn-poc.tar.gz
-  artifactSha256: "changing another contributor again"
+  artifactSha256: "changing another contributor again in qa"
   # command sha256sum bpmn-poc.tar.gz
   artifactUrl: "abcd.efgh"
