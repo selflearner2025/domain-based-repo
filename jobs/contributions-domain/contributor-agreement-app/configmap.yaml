@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: camunda-bpmn-artifact-repo-c
+  name: contributor-agreement-app-cm
 data:
   artifactName: bpmn-poc.tar.gz
-  artifactSha256: "only repo c has changed"
+  artifactSha256: "changing contributor"
   # command sha256sum bpmn-poc.tar.gz
   artifactUrl: "abcd.efgh"

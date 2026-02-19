@@ -6,22 +6,24 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/selflearner2025/appsperenv.git
-        revision: master
+        repoURL: https://github.com/selflearner2025/domain-based-repo.git
+        revision: test
         directories:
-          - path: jobs/*
+          - path: jobs/*/*
   template:
     metadata:
-      name: '{{path.basename}}-camunda-job'
+      name: '{{path.basename}}-application' 
     spec:
       project: default
       source:
-        repoURL: https://github.com/selflearner2025/appsperenv.git
-        targetRevision: master
+        repoURL: https://github.com/selflearner2025/domain-based-repo.git
+        targetRevision: test
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: camunda-dev-new
+        namespace: '{{path[1]}}-namespace'
       syncPolicy:
         automated: {}
+        syncOptions:
+          - CreateNamespace=true
          

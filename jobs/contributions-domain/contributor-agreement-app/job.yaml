@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: camunda-bpmn-sync-poc-repo-c
+  name: contributor-agreement-app-job
   #generateName: camunda-bpmn-sync-poc
   annotations:
     argocd.argoproj.io/hook: Sync
@@ -23,19 +23,14 @@ spec:
           emptyDir: {}
         - name: artifact-info
           configMap:
-            name: camunda-bpmn-artifact-repo-c
+            name: contributor-agreement-app-cm
       containers:
         - name: downloader
           image: alpine:3.20
           command: ["/bin/sh", "-c"]
           args:
             - |
-              echo "now deploy to camunda"
-               echo "hello"
-               echo "deploy some more"
-               set -eu
-               echo "📦 Listing ConfigMap mounted files:"
-               ls -la /artifact
+               
             
                echo "📄 Dumping file contents:"
                for file in /artifact/*; do
