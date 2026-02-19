@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
-        revision: test
+        revision: testnew
         directories:
           - path: jobs/*/*
   template:
@@ -17,7 +17,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
-        targetRevision: test
+        targetRevision: testnew
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
