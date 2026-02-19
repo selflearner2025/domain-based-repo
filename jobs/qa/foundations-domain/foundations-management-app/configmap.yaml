@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: foundations-management-app-cm
+data:
+  artifactName: bpmn-poc.tar.gz
+  artifactSha256: "changing foundations again"
+  # command sha256sum bpmn-poc.tar.gz
+  artifactUrl: "abcd.efgh"

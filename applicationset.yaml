@@ -9,12 +9,14 @@ spec:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
         revision: testnew
         directories:
-          - path: jobs/*/*
+          - path: jobs/*/*   # matches jobs/dev/claims-domain, jobs/qa/violations-domain etc
   template:
     metadata:
-      name: '{{path.basename}}-application' 
+      name: '{{path[1]}}-{{path.basename}}-application'   # e.g. dev-claims-domain-application
       labels:
-        domain: '{{path[1]}}'
+        env: '{{path[1]}}'           # dev, qa, prod
+        domain: '{{path.basename}}'  # claims-domain, violations-domain etc
+        managed-by: argocd
     spec:
       project: default
       source:
@@ -23,9 +25,10 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path[1]}}-namespace'
+        namespace: camunda          # hardcoded, same for all apps and envs
       syncPolicy:
-        automated: {}
+        automated:
+          prune: true
+          selfHeal: true
         syncOptions:
           - CreateNamespace=true
-         

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: another-violations-management-app-cm
+data:
+  artifactName: bpmn-poc.tar.gz
+  artifactSha256: "change violations to something else"
+  # command sha256sum bpmn-poc.tar.gz
+  artifactUrl: "abcd.efgh"
