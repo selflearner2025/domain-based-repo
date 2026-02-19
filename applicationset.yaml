@@ -9,23 +9,25 @@ spec:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
         revision: withenv
         directories:
-          - path: jobs/*/*/*   # matches jobs/dev/claims-domain, jobs/qa/violations-domain etc
+          - path: jobs/*/*/*   # matches jobs/dev/claims-domain/claims-management-app
   template:
     metadata:
-      name: '{{path[1]}}-{{path.basename}}-application'   # e.g. dev-claims-domain-application
+      name: '{{path[1]}}-{{path[2]}}-{{path.basename}}-application'
+      # e.g. dev-claims-domain-claims-management-app-application
       labels:
-        env: '{{path[1]}}'           # dev, qa, prod
-        domain: '{{path.basename}}'  # claims-domain, violations-domain etc
+        env: '{{path[1]}}'           # dev, qa
+        domain: '{{path[2]}}'        # claims-domain, violations-domain
+        app: '{{path.basename}}'     # claims-management-app, another-claims-app
         managed-by: argocd
     spec:
       project: default
       source:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
         targetRevision: withenv
-        path: '{{path}}'
+        path: '{{path}}'             # e.g. jobs/dev/claims-domain/claims-management-app
       destination:
         server: https://kubernetes.default.svc
-        namespace: singlenamespace          # hardcoded, same for all apps and envs
+        namespace: singlenamespace
       syncPolicy:
         automated:
           prune: true
