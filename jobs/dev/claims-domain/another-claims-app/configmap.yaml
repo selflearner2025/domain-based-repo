@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: another-claims-management-app-cm
+  name: another-claims-management-app-cm-dev
 data:
   artifactName: bpmn-poc.tar.gz
   artifactSha256: "chaning claims"

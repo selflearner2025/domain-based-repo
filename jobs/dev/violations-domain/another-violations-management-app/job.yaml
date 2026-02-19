@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: another-violations-management-app-job
+  name: another-violations-management-app-job-dev
   #generateName: camunda-bpmn-sync-poc
   annotations:
     argocd.argoproj.io/hook: Sync
@@ -23,7 +23,7 @@ spec:
           emptyDir: {}
         - name: artifact-info
           configMap:
-            name: another-violations-management-app-cm
+            name: another-violations-management-app-cm-dev
       containers:
         - name: downloader
           image: alpine:3.20

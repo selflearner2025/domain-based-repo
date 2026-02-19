@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: another-violations-management-app-cm
+  name: another-violations-management-app-cm-dev
 data:
   artifactName: bpmn-poc.tar.gz
   artifactSha256: "change violations to something else"
