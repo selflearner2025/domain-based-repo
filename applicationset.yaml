@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: domain-based-applicationset
+  name: domain-based-applicationset-multienv
   namespace: argocd
 spec:
   generators:
     - git:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
-        revision: testnew
+        revision: withenv
         directories:
-          - path: jobs/*/*   # matches jobs/dev/claims-domain, jobs/qa/violations-domain etc
+          - path: jobs/*/*/*   # matches jobs/dev/claims-domain, jobs/qa/violations-domain etc
   template:
     metadata:
       name: '{{path[1]}}-{{path.basename}}-application'   # e.g. dev-claims-domain-application
@@ -21,11 +21,11 @@ spec:
       project: default
       source:
         repoURL: https://github.com/selflearner2025/domain-based-repo.git
-        targetRevision: testnew
+        targetRevision: withenv
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: camunda          # hardcoded, same for all apps and envs
+        namespace: singlenamespace          # hardcoded, same for all apps and envs
       syncPolicy:
         automated:
           prune: true
